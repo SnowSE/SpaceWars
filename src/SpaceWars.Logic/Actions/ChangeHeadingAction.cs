@@ -22,7 +22,11 @@ public class ChangeHeadingAction : GamePlayAction
     }
     public override Result Execute(Player player, GameMap _)
     {
-        player.Ship.Heading = NewHeading;
-        return new Result(true, $"Heading Successfully Updated to {newHeading}");
+        if (player?.Ship != null && NewHeading >= 0 && NewHeading < 360)
+        {
+            player.Ship.Heading = NewHeading;
+            return new Result(true, $"Heading Successfully Updated to {newHeading}");
+        }
+        return new Result(false, "Can't change heading without a ship or a valid heading.");
     }
 }
