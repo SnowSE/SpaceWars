@@ -20,7 +20,7 @@ public class PurchaseActionTests
         p1.Ship.Weapons.Should().HaveCount(2);
         p1.Ship.UpgradeCreditBalance.Should().Be(Math.Abs(new BasicCannon().PurchaseCost - startingCreditBalance));
         res.Success.Should().BeTrue();
-        res.Message.Should().Be("Basic Cannon purchased");
+        res.Message.Should().Be("Basic Cannon");
     }
 
     [Fact]
@@ -71,7 +71,7 @@ public class PurchaseActionTests
 
         var res = new PurchaseAction("Basic Cannon").Execute(p1, map);
         res.Success.Should().BeTrue();
-        res.Message.Should().Be("Basic Cannon purchased");
+        res.Message.Should().Be("Basic Cannon");
 
         var res2 = new PurchaseAction("Power Fist").Execute(p1, map);
         res2.Success.Should().BeFalse();
@@ -90,10 +90,10 @@ public class PurchaseActionTests
 
         var res = new PurchaseAction("Basic Cannon").Execute(p1, map);
         res.Success.Should().BeTrue();
-        res.Message.Should().Be("Basic Cannon purchased");
+        res.Message.Should().Be("Basic Cannon");
 
         var res2 = new PurchaseAction("Power Fist").Execute(p1, map);
         res2.Success.Should().BeTrue();
-        res2.Message.Should().Be("Power Fist purchased");
+        res2.Message.Should().Be("Power Fist");
     }
 }

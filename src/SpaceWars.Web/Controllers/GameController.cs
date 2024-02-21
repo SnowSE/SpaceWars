@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using SpaceWars.Logic;
-using SpaceWars.Logic.Exceptions;
 using SpaceWars.Logic.Actions;
+using SpaceWars.Logic.Exceptions;
 using SpaceWars.Web.Types;
 
 namespace SpaceWars.Web.Controllers;

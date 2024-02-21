@@ -9,7 +9,7 @@ public class Game
     public const int MaxPlayerCount = 100;
 
     private readonly List<IPurchasable> Shop = [
-        new BasicCannon(), 
+        new BasicCannon(),
         new PowerFist(),
         new RailGun()
     ];
@@ -37,7 +37,7 @@ public class Game
 
     public GameJoinResult Join(string playerName)
     {
-        if(players.Count > MaxPlayerCount)
+        if (players.Count > MaxPlayerCount)
         {
             throw new TooManyPlayersException();
         }
@@ -82,7 +82,9 @@ public class Game
 
     public GameState State => state;
 
-    public IEnumerable<Location> PlayerLocations => players.Values.Select(p => p.Ship.Location);
+    public IEnumerable<Location> PlayerLocations => players.Values
+        .Where(p => p.IsAlive)
+        .Select(p => p.Ship.Location);
 
     public void Tick()
     {

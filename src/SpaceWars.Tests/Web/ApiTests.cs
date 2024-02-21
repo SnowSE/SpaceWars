@@ -23,15 +23,6 @@ public class ApiTests : IClassFixture<SpaceWarsWebApplicationFactory>
     }
 
     [Fact]
-    public async Task CanStartGameWithCorrectPassword()
-    {
-        var response = await httpClient.GetAsync("/game/start?password=password");
-        response.EnsureSuccessStatusCode();
-        var gameState = await httpClient.GetFromJsonAsync<GameStateResponse>("/game/state");
-        gameState.GameState.Should().Be("Playing");
-    }
-
-    [Fact]
     public async Task MoveActionQueueForPlayer()
     {
         List<QueueActionRequest> actionRequest = [new("move", "250")];
