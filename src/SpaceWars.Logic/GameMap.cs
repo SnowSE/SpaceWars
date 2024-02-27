@@ -38,7 +38,7 @@ public class GameMap
 
         foreach (var otherPlayer in Players)
         {
-            if (otherPlayer == player)
+            if (otherPlayer == player || !otherPlayer.IsAlive)
                 continue;
 
             var otherLocation = new Vector2(otherPlayer.Ship.Location.X, otherPlayer.Ship.Location.Y);
